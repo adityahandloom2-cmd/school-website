@@ -239,7 +239,7 @@ function startAutoGlitchScroll() {
 // ==========================================
 // PASSWORD PROTECTION ENGINE WITH EYE TOGGLE
 // ==========================================
-const CORRECT_PASSWORD = "12345"; // 👈 Yahan apna password set karein!
+const CORRECT_PASSWORD = "chandu"; // 👈 Yahan apna password set karein!
 
 function leavePage() {
     // Website se auto-leave kar ke blank page par bhej dega
