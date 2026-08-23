@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKP Vidya Vihar, Bhagalpur | Official Campus Portal</title>
+
+    <!-- Locomotive Scroll CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+    
+    
+    <!-- 💥 Boxicons CDN (Isse Icons Dikhne Lagenge) 💥 -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
+
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body >
+
+    <!-- Password Protection Overlay -->
+<div id="password-overlay">
+  <div class="pass-box">
+    <h2>🔒 PRIVATE ACCESS</h2>
+    <p>Enter Password to Continue</p>
+    
+    <div class="password-wrapper">
+      <input type="password" id="sitePassInput" placeholder="Enter Password" autofocus>
+      <span id="togglePasswordBtn" onclick="togglePasswordVisibility()">🙈</span>
+    </div>
+    
+    <button onclick="checkSitePassword()">ENTER</button>
+  </div>
+</div>
+
+    <div data-scroll-container>
+
+        <!-- Top Announcement -->
+        <div class="top-bar">
+            <span>📢 Admissions Open for Academic Session 2026-27</span>
+            <span>📞 Helpline: 9192 baki😁</span>
+        </div>
+
+        <!-- Hero Header -->
+        <header data-scroll-section>
+            <div class="logo-container" data-scroll data-scroll-speed="1">
+
+                <!-- school logo -->
+                <img src="image/logo.png" alt="logo.png">
+            </div>
+            <h1 data-scroll data-scroll-speed="1.2" onclick="playMySong()">SKP Vidya <span>Vihar</span></h1>
+            <p data-scroll data-scroll-speed="1">Bhagalpur, Bihar — Nurturing leadership, character, and academic excellence.</p>
+                       <div class="btn-group" id="myCampusDiv" style="cursor: pointer;">
+                <a href="#about" class="btn-primary" onclick="triggerGlitchExperience(event)">Explore Campus</a>
+                <a href="#contact" class="btn-outline">Apply Now</a>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <a href="#about">About</a>
+            <a href="#notices">Notices</a>
+            <a href="#academics">Academics</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#media">Media</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="container">
+
+            <!-- Stats Bar -->
+            <div class="stats-grid" data-scroll-section>
+                <div class="stat-card">
+                    <h3>25+</h3>
+                    <p>Years of Legacy</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Board Pass Rate</p>
+                </div>
+                <div class="stat-card">
+                    <h3>50+</h3>
+                    <p>Expert Faculty</p>
+                </div>
+                <div class="stat-card">
+                    <h3>2000+</h3>
+                    <p>Students Enrolled</p>
+                </div>
+            </div>
+
+<!-- Wanted List Table Section (6 Rows) -->
+<section id="notices" data-scroll-section>
+    <div class="section-header">
+        <i class='bx bx-error-circle'></i>
+        <h2>WANTED LIST</h2>
+    </div>
+
+    <div class="wanted-table-container">
+        <table class="wanted-table">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">WANTED NO.</th>
+                    <th style="width: 50%;">NAME</th>
+                    <th style="width: 30%;">INAM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr id="wantedRow1" onclick="playWantedSong(1)">
+                    <td class="rgb-text">#01</td>
+                    <td class="rgb-text">Parween</td>
+                    <td class="rgb-text">₹1000</td>
+                </tr>
+                <!-- Row 2 -->
+                <tr id="wantedRow2" onclick="playWantedSong(2)">
+                    <td class="rgb-text">#02</td>
+                    <td class="rgb-text">Abhishek</td>
+                    <td class="rgb-text">₹2000</td>
+                </tr>
+                <!-- Row 3 -->
+                <tr id="wantedRow3" onclick="playWantedSong(3)">
+                    <td class="rgb-text">#03</td>
+                    <td class="rgb-text">Aasish</td>
+                    <td class="rgb-text">₹3000</td>
+                </tr>
+                <!-- Row 4 -->
+                <tr id="wantedRow4" onclick="playWantedSong(4)">
+                    <td class="rgb-text">#04</td>
+                    <td class="rgb-text">G.P</td>
+                    <td class="rgb-text">₹4000</td>
+                </tr>
+                <!-- Row 5 -->
+                <tr id="wantedRow5" onclick="playWantedSong(5)">
+                    <td class="rgb-text">#05</td>
+                    <td class="rgb-text">Arpana (Most wanted)</td>
+                    <td class="rgb-text">₹10000</td>
+                </tr>
+                <!-- Row 6 -->
+                <tr id="wantedRow6" onclick="playWantedSong(6)">
+                    <td class="rgb-text">#06</td>
+                    <td class="rgb-text">D.P (mar ke kanaya na tha bhosdi ke)</td>
+                    <td class="rgb-text">₹100000 or mu mangi kimat</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+            <!-- Academics / Facilities -->
+            <section id="academics" data-scroll-section>
+                <div class="section-header">
+                    <i class='bx bx-building-house'></i>
+                    <h2>Campus Facilities</h2>
+                </div>
+
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="lab.jpg" alt="Science Lab" onerror="this.src='https://via.placeholder.com/300x200/0f172a/f59e0b?text=Science+Lab'">
+                        </div>
+                        <div class="card-body">
+                            <h3>Modern Laboratories</h3>
+                            <p>Fully equipped Physics, Chemistry, and Biology labs for hands-on practical learning.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="library.jpg" alt="Library" onerror="this.src='https://via.placeholder.com/300x200/0f172a/f59e0b?text=Digital+Library'">
+                        </div>
+                        <div class="card-body">
+                            <h3>Digital Library</h3>
+                            <p>Access to thousands of educational books, reference materials, and digital journals.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="sports.jpg" alt="Sports" onerror="this.src='https://via.placeholder.com/300x200/0f172a/f59e0b?text=Sports+Arena'">
+                        </div>
+                        <div class="card-body">
+                            <h3>Sports Complex</h3>
+                            <p>Dedicated facilities for Cricket, Football, Basketball, and indoor athletics.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery -->
+            <section id="gallery" data-scroll-section>
+                <div class="section-header">
+                    <i class='bx bx-images'></i>
+                    <h2>Photo Gallery</h2>
+                </div>
+
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="photo1.jpg" alt="Building" onerror="this.src='https://via.placeholder.com/300x200/0f172a/f59e0b?text=Main+Building'">
+                        </div>
+                        <div class="card-body">
+                            <h3>Main Building</h3>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="photo2.jpg" alt="Classroom" onerror="this.src='https://via.placeholder.com/300x200/0f172a/f59e0b?text=Smart+Classroom'">
+                        </div>
+                        <div class="card-body">
+                            <h3>Smart Classrooms</h3>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="photo3.jpg" alt="Auditorium" onerror="this.src='https://via.placeholder.com/300x200/0f172a/f59e0b?text=Auditorium'">
+                        </div>
+                        <div class="card-body">
+                            <h3>School Auditorium</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Media Section -->
+            <section id="media" data-scroll-section>
+                <div class="section-header">
+                    <i class='bx bx-play-circle'></i>
+                    <h2>Media Corner</h2>
+                </div>
+
+                <div class="media-grid">
+                    <div class="media-card">
+                        <h3 style="margin-bottom: 12px; font-size: 1rem; color: var(--primary);">Annual Function Video</h3>
+                        <video controls poster="thumbnail.jpg">
+                            <source src="audio/cc.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="media-card">
+                        <h3 style="margin-bottom: 12px; font-size: 1rem; color: var(--primary);">School Song / Anthem</h3>
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; text-align: center;">
+                            <i class='bx bxs-music' style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
+                            <audio controls>
+                                <source src="audio/11.mp3" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" data-scroll-section>
+                <div class="section-header">
+                    <i class='bx bx-envelope'></i>
+                    <h2>Get In Touch</h2>
+                </div>
+
+                <div class="contact-box">
+                    <div>
+                        <h3 style="margin-bottom: 15px; color: var(--primary);">Admissions Inquiry</h3>
+                        <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">
+                            Have questions regarding admissions, fees, or academics? Send us a message and our administration team will contact you shortly.
+                        </p>
+                        <p style="color: var(--text-light);"><i class='bx bx-map'></i> SKP Vidya Vihar, Bhagalpur, Bihar - 812001</p>
+                    </div>
+
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <label>Student / Parent Name</label>
+                            <input type="text" id="nameInput" placeholder="Enter full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="phoneInput" placeholder="Enter phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea id="messageInput" rows="4" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="btn-primary" style="width: 100%; border: none; cursor: pointer;" disabled>Submit Inquiry</button>
+                    </form>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer data-scroll-section>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>SKP Vidya Vihar</h4>
+                    <p>Bhagalpur, Bihar - 812001</p>
+                    <p>Phone: +91 98765 43210</p>
+                    <p>Email: info@skpvidyavihar.edu.in</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#notices">Notice Board</a>
+                    <a href="#academics">Facilities</a>
+                    <a href="#gallery">Campus Gallery</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Admissions</h4>
+                    <a href="#contact">Admission Procedure</a>
+                    <a href="#contact">Fee Structure</a>
+                    <a href="#contact">Download Prospectus</a>
+                </div>
+            </div>
+
+            <div class="school-sound-badge">
+                <span>School Be Like 🏫🔥</span>
+                <i class='bx bxs-volume-full school-speaker-icon' id="schoolSpeakerBtn" onclick="playSchoolSong()"></i>
+            </div>
+
+            <!-- Developer Badge -->
+            <div class="developer-badge" >
+                <div>
+                    <span style="color: var(--text-muted); font-size: 0.85rem;">Designed & Developed By</span>
+                    <br>
+                    <span class="dev-name" onclick="matlab()">KALA BABA</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/kala.baba67/?next=%2F" target="_blank" title="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="#" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+                    <a href="#" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+
+
+            <!-- Designer Badge -->
+            <div class="developer-badge designer-badge">
+                <div>
+                    <span style="color: var(--text-muted); font-size: 0.85rem;">Designed By</span>
+                    <br>
+                    <span class="designer-name" onclick="playDesignerSong()">Pushkar Kunal</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/_kunal._.04_/" target="_blank" title="Instagram"><i          class='bx bxl-instagram'></i></a>
+                    <a href="#" target="_blank" title="GitHub"><i class='bx bxl-github'></i></a>
+                    <a href="#" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 SKP Vidya Vihar, Bhagalpur. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+
+<!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+            onclick="document.documentElement.requestFullscreen()"
