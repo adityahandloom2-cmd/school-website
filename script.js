@@ -260,7 +260,7 @@ function checkSitePassword() {
         document.body.classList.add('unlocked'); // 👈 Ye line add kar do!
     } else {
         // Galat Password: Auto leave page
-        alert("⚠️ sahi password pata nahi hai to gand maro.");
+        alert("⚠️ sahi password pata nahi hai to gand maraao.");
         leavePage();
     }
 }
