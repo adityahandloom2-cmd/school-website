@@ -239,7 +239,7 @@ function startAutoGlitchScroll() {
 // ==========================================
 // PASSWORD PROTECTION ENGINE WITH EYE TOGGLE
 // ==========================================
-const CORRECT_PASSWORD = "chandu"; // 👈 Yahan apna password set karein!
+const CORRECT_PASSWORD = "chinki"; // 👈 Yahan apna password set karein!
 
 function leavePage() {
     // Website se auto-leave kar ke blank page par bhej dega
@@ -257,6 +257,7 @@ function checkSitePassword() {
         const overlay = document.getElementById('password-overlay');
         if (overlay) overlay.remove();
         document.body.classList.remove('locked');
+        document.body.classList.add('unlocked'); // 👈 Ye line add kar do!
     } else {
         // Galat Password: Auto leave page
         alert("⚠️ sahi password pata nahi hai to gand maro.");
@@ -293,3 +294,182 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+// // ==========================================
+// // COUNTDOWN TIMER LOGIC
+// // ==========================================
+
+// // Total countdown duration: 48 Hours in seconds
+// let totalSeconds = 48 * 3600; 
+
+// function updateTimerDisplay() {
+//     let hours = Math.floor(totalSeconds / 3600);
+//     let minutes = Math.floor((totalSeconds % 3600) / 60);
+//     let seconds = totalSeconds % 60;
+
+//     // Formatting as 2 digits (e.g., 05, 09)
+//     let hStr = String(hours).padStart(2, '0');
+//     let mStr = String(minutes).padStart(2, '0');
+//     let sStr = String(seconds).padStart(2, '0');
+
+//     // DOM Elements update
+//     const tH1 = document.getElementById('tH1');
+//     const tH2 = document.getElementById('tH2');
+//     const tM1 = document.getElementById('tM1');
+//     const tM2 = document.getElementById('tM2');
+//     const tS1 = document.getElementById('tS1');
+//     const tS2 = document.getElementById('tS2');
+
+//     if (tH1 && tH2) { tH1.textContent = hStr[0]; tH2.textContent = hStr[1]; }
+//     if (tM1 && tM2) { tM1.textContent = mStr[0]; tM2.textContent = mStr[1]; }
+//     if (tS1 && tS2) { tS1.textContent = sStr[0]; tS2.textContent = sStr[1]; }
+
+//     if (totalSeconds > 0) {
+//         totalSeconds--;
+//     }
+// }
+
+// // Timer toggle (Minimize / Show) logic
+// function toggleFullTimer() {
+//     const timerOverlay = document.getElementById('updateTimerOverlay');
+//     const floatingBtn = document.getElementById('floatingClockBtn');
+    
+//     if (timerOverlay && floatingBtn) {
+//         timerOverlay.classList.toggle('hidden');
+//         floatingBtn.classList.toggle('hidden');
+//     }
+// }
+
+// // Har 1 second (1000ms) par timer chalane ke liye
+// setInterval(updateTimerDisplay, 1000);
+
+// // Initial call taaki page load hote hi display set ho jaye
+// updateTimerDisplay();
+
+
+
+// // Single digit update function with vertical slide-down animation
+// function animateDigitSlide(element, newValue) {
+//     if (!element) return;
+    
+//     // Check if number actually changed
+//     if (element.textContent !== newValue) {
+//         // Remove animation class to reset
+//         element.classList.remove('digit-slide-down');
+        
+//         // Trigger DOM reflow so animation restarts smoothly
+//         void element.offsetWidth;
+        
+//         // Update content and apply vertical slide class
+//         element.textContent = newValue;
+//         element.classList.add('digit-slide-down');
+//     }
+// }
+
+// // Full Timer Update Loop
+// function updateTimerDisplay() {
+//     let hours = Math.floor(totalSeconds / 3600);
+//     let minutes = Math.floor((totalSeconds % 3600) / 60);
+//     let seconds = totalSeconds % 60;
+
+//     let hStr = String(hours).padStart(2, '0');
+//     let mStr = String(minutes).padStart(2, '0');
+//     let sStr = String(seconds).padStart(2, '0');
+
+//     // Har individual digit HTML span element par vertical slide animation run hoga
+//     animateDigitSlide(document.getElementById('tH1'), hStr[0]);
+//     animateDigitSlide(document.getElementById('tH2'), hStr[1]);
+//     animateDigitSlide(document.getElementById('tM1'), mStr[0]);
+//     animateDigitSlide(document.getElementById('tM2'), mStr[1]);
+//     animateDigitSlide(document.getElementById('tS1'), sStr[0]);
+//     animateDigitSlide(document.getElementById('tS2'), sStr[1]);
+
+//     if (totalSeconds > 0) {
+//         totalSeconds--;
+//     }
+// }
+
+// // 1 second interval setup
+// setInterval(updateTimerDisplay, 1000);
+// updateTimerDisplay();
+
+
+
+
+// ==========================================
+// COUNTDOWN TIMER LOGIC (BACKGROUND & RELOAD PROOF)
+// ==========================================
+
+// 48 Hours in seconds
+const DURATION_IN_SECONDS = 48 * 3600; 
+
+// Target end time calculate & save karne ka function
+function getEndTime() {
+    let endTime = localStorage.getItem('timerEndTime');
+    
+    // Pehli baar visit par future timestamp store karein
+    if (!endTime) {
+        endTime = Date.now() + (DURATION_IN_SECONDS * 1000);
+        localStorage.setItem('timerEndTime', endTime);
+    }
+    return parseInt(endTime, 10);
+}
+
+// Single digit update with vertical slide animation
+function animateDigitSlide(element, newValue) {
+    if (!element) return;
+    
+    if (element.textContent !== newValue) {
+        element.classList.remove('digit-slide-down');
+        void element.offsetWidth; // Reflow reset
+        element.textContent = newValue;
+        element.classList.add('digit-slide-down');
+    }
+}
+
+// Full Timer Update Loop
+function updateTimerDisplay() {
+    const endTime = getEndTime();
+    const now = Date.now(); // Current real-time clock
+    
+    // Remaining time in seconds calculate karein
+    let totalSeconds = Math.floor((endTime - now) / 1000);
+
+    if (totalSeconds <= 0) {
+        totalSeconds = 0;
+    }
+
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds % 3600) / 60);
+    let seconds = totalSeconds % 60;
+
+    let hStr = String(hours).padStart(2, '0');
+    let mStr = String(minutes).padStart(2, '0');
+    let sStr = String(seconds).padStart(2, '0');
+
+    // DOM Elements update with slide animation
+    animateDigitSlide(document.getElementById('tH1'), hStr[0]);
+    animateDigitSlide(document.getElementById('tH2'), hStr[1]);
+    animateDigitSlide(document.getElementById('tM1'), mStr[0]);
+    animateDigitSlide(document.getElementById('tM2'), mStr[1]);
+    animateDigitSlide(document.getElementById('tS1'), sStr[0]);
+    animateDigitSlide(document.getElementById('tS2'), sStr[1]);
+}
+
+// Timer toggle (Minimize / Show) logic
+function toggleFullTimer() {
+    const timerOverlay = document.getElementById('updateTimerOverlay');
+    const floatingBtn = document.getElementById('floatingClockBtn');
+    
+    if (timerOverlay && floatingBtn) {
+        timerOverlay.classList.toggle('hidden');
+        floatingBtn.classList.toggle('hidden');
+    }
+}
+
+// Har 1 second me screen UI sync karein
+setInterval(updateTimerDisplay, 1000);
+
+// Page reload/re-open hone par turant current timing dikhayen
+updateTimerDisplay();

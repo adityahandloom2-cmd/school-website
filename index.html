@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -18,6 +18,57 @@
 
 </head>
 <body >
+
+    <!-- Full Screen Overlay Update Timer -->
+<div id="updateTimerOverlay" class="timer-overlay">
+    <!-- Top-Right Minimize/Hide Button -->
+    <button class="minimize-btn" onclick="toggleFullTimer()" title="Hide Timer">
+        <i class='bx bx-minus'></i> Hide
+    </button>
+
+    <div class="timer-overlay-content">
+        <h2 class="timer-title">🚀 BIG UPDATE LAUNCHING IN</h2>
+        
+        <div id="timerBox" class="flip-timer-container">
+            <!-- HOURS (48) -->
+            <div class="time-card">
+                <div class="digit-box">
+                    <span id="tH1">4</span>
+                    <span id="tH2">8</span>
+                </div>
+                <p>HOURS</p>
+            </div>
+
+            <span class="colon">:</span>
+
+            <!-- MINUTES -->
+            <div class="time-card">
+                <div class="digit-box">
+                    <span id="tM1">0</span>
+                    <span id="tM2">0</span>
+                </div>
+                <p>MINUTES</p>
+            </div>
+
+            <span class="colon">:</span>
+
+            <!-- SECONDS (Right single digit 1-9 animates every sec) -->
+            <div class="time-card">
+                <div class="digit-box">
+                    <span id="tS1">0</span>
+                    <span id="tS2">0</span>
+                </div>
+                <p>SECONDS</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Minimized Floating Clock Icon (Right Side) -->
+<button id="floatingClockBtn" class="floating-clock-btn hidden" onclick="toggleFullTimer()" title="Show Update Timer">
+    <i class='bx bx-time-five'></i>
+    <span class="pulse-dot"></span>
+</button>
 
     <!-- Password Protection Overlay -->
 <div id="password-overlay">
@@ -57,15 +108,7 @@
             </div>
         </header>
 
-        <!-- Navigation -->
-        <nav>
-            <a href="#about">About</a>
-            <a href="#notices">Notices</a>
-            <a href="#academics">Academics</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#media">Media</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        
 
         <div class="container">
 
@@ -353,6 +396,27 @@
         </footer>
 
     </div>
+
+
+    <!-- Top se aane ke liye -->
+<div class="come-top">
+    <h1>Explox Section</h1>
+</div>
+
+<!-- Left se aane ke liye -->
+<div class="come-left">
+    <h2>Campus Details</h2>
+</div>
+
+<!-- Right se aane ke liye -->
+<div class="come-right">
+    <h2>Wanted List</h2>
+</div>
+
+<!-- Bottom se aane ke liye -->
+<div class="come-bottom">
+    <p>Baaki ka sabhi Content / Footer</p>
+</div>
 
 <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>

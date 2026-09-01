@@ -459,7 +459,7 @@ body.locked {
     border-radius: 12px;
     border: 1px solid var(--border-color);
     width: fit-content;            /* Screen width gherna band kar dega */
-    margin-left: auto;             /* Right side me shift kar dega */
+    margin-left: 1120px;             /* Right side me shift kar dega */
     margin-bottom: 15px;           /* Social links/Dev badge ke upar space */
     font-weight: 700;
     font-size: 0.95rem;
@@ -1254,4 +1254,282 @@ body.locked {
 
 .pass-box button:hover {
     background: #cc0000;
+}
+
+
+/* Directions ke Animations */
+@keyframes slideLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideTop {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideBottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Jab site unlock hogi tabhi animation chalega */
+body.unlocked .come-left { animation: slideLeft 1s ease-out forwards; }
+body.unlocked .come-right { animation: slideRight 1s ease-out forwards; }
+body.unlocked .come-top { animation: slideTop 1s ease-out forwards; }
+body.unlocked .come-bottom { animation: slideBottom 1s ease-out forwards; }/* Directions ke Animations */
+@keyframes slideLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideTop {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideBottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Jab site unlock hogi tabhi animation chalega */
+body.unlocked .come-left { animation: slideLeft 1s ease-out forwards; }
+body.unlocked .come-right { animation: slideRight 1s ease-out forwards; }
+body.unlocked .come-top { animation: slideTop 1s ease-out forwards; }
+body.unlocked .come-bottom { animation: slideBottom 1s ease-out forwards; }
+
+
+/* ==========================================
+   FULL SCREEN COVER TIMER & SINGLE DIGIT DROP
+   ========================================== */
+
+.timer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(7, 10, 18, 0.96);
+    backdrop-filter: blur(15px);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timer-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.1);
+}
+
+.minimize-btn {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.minimize-btn:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+}
+
+.timer-overlay-content {
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.timer-title {
+    color: var(--primary);
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+.flip-timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.time-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.digit-box {
+    background: #0f172a;
+    border: 2px solid var(--primary);
+    border-radius: 16px;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(245, 158, 11, 0.2);
+    overflow: hidden;
+    gap: 4px;
+}
+
+.digit-box span {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #ffffff;
+    display: inline-block;
+    width: 45px;
+    text-align: center;
+}
+
+/* Single Digit Top-Drop Animation */
+.single-digit-drop {
+    animation: dropSingleDigit 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes dropSingleDigit {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.time-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+.colon {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 35px;
+}
+
+/* Right Side Floating Icon */
+.floating-clock-btn {
+    position: fixed;
+    right: 25px;
+    bottom: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #d97706);
+    color: #000;
+    border: 2px solid #fff;
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.8);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    z-index: 99999;
+    transition: 0.3s;
+}
+
+.floating-clock-btn.hidden {
+    display: none;
+}
+
+.floating-clock-btn:hover {
+    transform: scale(1.15) rotate(15deg);
+}
+
+.pulse-dot {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 12px;
+    height: 12px;
+    background: #ff0055;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+/* Timer Full Overlay Window Styling */
+#updateTimerOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    
+    /* Smooth Transition Setup */
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+/* Hidden State: Screen ke upar push karein (-100%) */
+#updateTimerOverlay.hidden {
+    display: flex !important; /* display: none ko override karne ke liye */
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Individual Digit Container - Clips the vertical scrolling numbers */
+.timer-box .digit {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 1.2em; /* Digit visible area height */
+    line-height: 1.2em;
+    vertical-align: middle;
+}
+
+/* Number sliding animation keyframes */
+@keyframes slideDownIn {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Class applied when number changes */
+.digit-slide-down {
+    display: inline-block;
+    animation: slideDownIn 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
